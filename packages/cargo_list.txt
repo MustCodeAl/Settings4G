@@ -1,0 +1,16 @@
+alacritty --version 0.12.3
+atuin --version 17.0.1
+backtracetk --version 0.1.0 (https://github.com/nilehmann/backtracetk#d593e959)
+bat --version 0.24.0
+coreutils --version 0.0.20
+eza --version 0.15.2
+grex --version 1.4.4
+hx --version 0.4.2
+lsd --version 1.0.0
+navi --version 2.20.1
+onefetch --version 2.18.1
+ripgrep --version 13.0.0
+starship --version 1.16.0
+tealdeer --version 1.6.1
+trippy --version 0.8.0
+zoxide --version 0.9.2
