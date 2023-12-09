@@ -1,0 +1,72 @@
+# Load the oh-my-zsh's library.
+#antigen use oh-my-zsh
+
+
+jeffreytse/zsh-vi-mode
+
+#MenkeTechnologies/zsh-more-completions
+
+Aloxaf/fzf-tab kind:defer
+
+
+#zsh-defer source /home/parrot/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/autopair.plugin.zsh
+#zsh-defer source /home/parrot/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/zsh-autopair.plugin.zsh
+  
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+#git
+#heroku
+#pip
+#lein
+#command-not-found
+
+
+
+chrissicool/zsh-256color
+le0me55i/zsh-extract
+
+
+
+
+
+
+
+zdharma-continuum/fast-syntax-highlighting
+ael-code/zsh-colored-man-pages
+
+bric3/nice-exit-code
+
+oldratlee/hacker-quotes
+zsh-users/zsh-autosuggestions
+
+atuinsh/atuin kind:defer
+
+jhwohlgemuth/zsh-pentest
+zpm-zsh/mysql-colorize
+mroth/evalcache
+
+
+voronkovich/mysql.plugin.zsh
+caarlos0/zsh-pg
+
+jedahan/ripz
+skx/sysadmin-util
+
+
+
+CyberSecurityN00b/penzsh
+
+clarketm/zsh-completions
+
+
+#tom-doerr/zsh_codex
+
+
+MichaelAquilina/zsh-you-should-use
+#qoomon/zsh-lazyload
+
+
+
+
+hlissner/zsh-autopair kind:defer
+# Tell Antigen that you're done.
+#antigen apply
