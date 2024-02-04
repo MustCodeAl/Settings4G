@@ -1,8 +1,6 @@
 
-# Set up the prompt
-
-autoload -Uz promptinit
-promptinit
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,7 +9,29 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-PROMPT='$(nice_exit_code) %n@%m > '
+
+
+
+
+
+
+FPATH="~/eza/completions/zsh:$FPATH"
+
+autoload -Uz compinit
+ZSH_COMPDUMP=${ZSH_COMPDUMP:-${ZDOTDIR:-~}/.zcompdump}
+
+# cache .zcompdump for about a day
+if [[ $ZSH_COMPDUMP('#qNmh-20') ]]; then
+  compinit -C -d "$ZSH_COMPDUMP"
+else
+  compinit -i -d "$ZSH_COMPDUMP"; touch "$ZSH_COMPDUMP"
+fi
+{
+  # compile .zcompdump
+  if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
+    zcompile "$ZSH_COMPDUMP"
+  fi
+} &!
 
 
 
@@ -19,60 +39,6 @@ PROMPT='$(nice_exit_code) %n@%m > '
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-
-
-
-
-
-typeset -U PATH path
-
-# OMZ does not add nested comp dirs to fpath so do it here, assume *src has completions
-
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-#source /path-to-antidote/antidote.zsh
-
-
-
-
-# .zshrc
-# Lazy-load antidote and generate the static load file only when needed
-zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
-if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
-  (
-    source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
-  )
-fi
-source ${zsh_plugins}.zsh
-
-
-#initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-#antidote load
-
-
-
-# If you come from bash you might have to change your $PATH.
-export PATH=/var/lib/flatpak/exports/share:/home/parrot/.local/share/flatpak/exports/share:$HOME/bin:$PATH
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
-#'/var/lib/flatpak/exports/share'
-#'/home/parrot/.local/share/flatpak/exports/share'
-
-#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:~/.local/bin:/snap/bin:$PATH
-#export PATH=~/local/bin:$PATH
-
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-# export PATH=$PATH:~/home/parrot/.local/bin
-MANROFFOPT="-c"
-
-#export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
-export MANPAGER="sh -c 'col -bx | bat --paging=always --theme=Dracula -l man --style=plain'"
-
-
-export MANPATH="/usr/local/man:$MANPATH"
 
 
 
@@ -80,51 +46,18 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 
 
+#typeset -U PATH path
 
 
 
 
 
+#export PATH="/snap/bin:$PATH"
 
 
 
 
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
-
-source $ZSH/oh-my-zsh.sh
-#source ~/antigen.zsh
-
-
-
-# now, simply add these two lines in your ~/.zshrc
-
-# source antidote
-
-
-
-
-#+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
-#~ evalcache atuin init zsh
-#eval "$(atuin init zsh)"
-
-eval "$(dircolors -b)"
-#~ _evalcache zoxide init zsh
-eval "$(zoxide init zsh --cmd cd)"
-
-
-
-
-
-
-
-
-
-
-
-
-
-setopt histignorealldups sharehistory
+#setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
 #bindkey -e
@@ -138,9 +71,80 @@ else
 fi
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
+#~ HISTSIZE=10000
+#~ SAVEHIST=10000
+#~ HISTFILE=~/.zsh_history
+
+
+
+
+# If you come from bash you might have to change your $PATH.
+#export PATH=/var/lib/flatpak/exports/share:/home/parrot/.local/share/flatpak/exports/share:$HOME/bin:$PATH
+
+
+
+
+
+
+
+export MANPAGER='manpager --theme=\"Monokai Extended\" --style=plain | less --pattern=^\\S+'
+
+
+
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8 
+#export LANGUAGE="en_US:en"
+
+export CLICOLOR=1
+#export CLICOLOR_FORCE="yes"
+#export LS_COLORS=di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
+#export ZSH_LS_BACKEND=exa
+
+
+
+export ANTIDOTE_HOME="$HOME/.cache/antidote"
+export ZSH_CACHE_DIR="$HOME/.cache/zshcache"
+#export ZSH="$HOME/.oh-my-zsh"
+
+
+export RUST_BACKTRACE=full
+
+export CARGO_INCREMENTAL=0
+export SCCACHE_ERROR_LOG=/tmp/sccache_log.txt 
+#export SCCACHE_LOG=debug
+
+export RUSTC_WRAPPER=~/.cargo/bin/sccache
+export CMAKE_C_COMPILER_LAUNCHER=sccache
+export CMAKE_CXX_COMPILER_LAUNCHER=sccache
+
+
+export PYTHONDEBUG=1
+export BETTER_EXCEPTIONS=1
+
+
+
+export LESS="$LESS -R"
+export LESSOPEN='|~/.lessfilter %s'
+export LESSCOLORIZER='bat'
+export MANPAGER='manpager --style=plain | less --pattern=^\\S+'
+
+
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+
+export warhol_ignore_ls=1
+export warhol_ignore_df=1
+export warhol_ignore_diff=1
+export warhol_ignore_du=1
+export warhol_ignore_ps=1
+
+
+
+#export LANG=en_US.UTF-8
 
 
 
@@ -155,118 +159,158 @@ HISTFILE=~/.zsh_history
 
 
 
+
+
+# optional, greet also when opening shell directly in repository directory
+# adds time to startup
+
+#~ macchina
+
+
+
+
+
+
+
+
+#plugins=()
+
+#source $ZSH/oh-my-zsh.sh
+
+
+
+
+# Set the name of the static .zsh plugins file antidote will generate.
+zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
+
+# Ensure you have a .zsh_plugins.txt file where you can add plugins.
+[[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
+
+# Lazy-load antidote.
+fpath+=(${ZDOTDIR:-~}/.antidote)
+autoload -Uz $fpath[-1]/antidote
+
+
+# Generate static file in a subshell when .zsh_plugins.txt is updated.
+if [[ ! $zsh_plugins -nt ${zsh_plugins:r}.txt ]]; then
+  (antidote bundle <${zsh_plugins:r}.txt >|$zsh_plugins)
+fi
+
+
+
+source $zsh_plugins
+
+
+
+
+
+zvm_after_init_commands+=(
+'_evalcache atuin init zsh'
+)
+
+
+export ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd history)
+export ZSH_AUTOSUGGEST_COMPLETION_IGNORE="\#*"
+
+
+
+
+
+autoload -Uz promptinit && promptinit && prompt powerlevel10k
+
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+####
+
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#~ # OMZ does not add nested comp dirs to fpath so do it here, assume *src has completions
+#~ # .zshrc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_evalcache dircolors
+
+# eval "$(/home/parrot/.local/bin/mise activate zsh)"
+
+
+eval "$(~/.local/bin/mise activate zsh)"
+
+# ########################################################################################################################
+
+
+# git repository greeter
+last_repository=
+check_directory_for_new_repository() {
+	current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
+
+	if [ "$current_repository" ] && \
+	   [ "$current_repository" != "$last_repository" ]; then
+		onefetch
+	fi
+	last_repository=$current_repository
+}
+cd() {
+	z "$@"
+	check_directory_for_new_repository
+}
+
+
+#- [ "$(date +%j)" != "$(cat ~/.mf.prevtime 2>/dev/null)" ] && { macchina > ~/.mf; date +%j > ~/.mf.prevtime; cat ~/.mf; } || cat ~/.mf
+
+
+#~ [ "$(date +%j)" != "$(cat ~/.mf.prevtime 2>/dev/null)" ] && { macchina > ~/.mf; date +%j > ~/.mf.prevtime; cat ~/.mf; } || cat ~/.mf
 
 
 # ########################################################################################################################
-# completion stuff
-# ########################################################################################################################
 
-autoload -Uz compinit
-compinit
-
-
-
-
-# basic file preview for ls (you can replace with something more sophisticated than head)
-#zstyle ':completion::*:ls::*' fzf-completion-opts --preview='eval head {1}'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-
-
-
-
-
-# give a preview of commandline arguments when completing `kill`
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
-
-
-
-
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-
-
-
-# disable sort when completing options of any command
-#zstyle ':completion:complete:*:options' sort false
-
-
-
-
-# switch group using `,` and `.`
-
-zstyle ':fzf-tab:*' switch-group ',' '.'
-zstyle ':fzf-tab:*' group-colors $FZF_TAB_GROUP_COLORS
-
-
-# use input as query string when completing zlua
-zstyle ':fzf-tab:complete:_zlua:*' query-string input
-
-
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-
-
-
-zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
-
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
-
-zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
-	fzf-preview 'echo ${(P)word}'
-
-zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
-  ¦ '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
-  
-  
-# this is an example
-zstyle ':fzf-tab:complete:(\\|)run-help:*' fzf-preview 'run-help $word'
-zstyle ':fzf-tab:complete:(\\|*/|)man:*' fzf-preview 'batman $word'
-#now, they can work, because (\\|*/|)man can match them.
-
-
-# it is an example. you can change it
-zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
-	'git diff $word | delta'
-zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
-	'git log --color=always $word'
-zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
-	'git help $word | bat -plman --color=always'
-zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-	'case "$group" in
-	"commit tag") git show --color=always $word ;;
-	*) git show --color=always $word | delta ;;
-	esac'
-zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-	'case "$group" in
-	"modified file") git diff $word | delta ;;
-	"recent commit object name") git show --color=always $word | delta ;;
-	*) git log --color=always $word ;;
-	esac'
-
-
-
-
-
-# ########################################################################################################################
 
 
 
@@ -276,65 +320,198 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 
 #alias grep=grep
 
-for cmd in g++ gas head make ld ping6 tail traceroute6 $( ls /usr/share/grc/ ); do
-  cmd="${cmd##*conf.}"
-  type "${cmd}" >/dev/null 2>&1 && alias "${cmd}"="$( which grc ) --colour=auto ${cmd}"
-done
+#for cmd in g++ gas head make ld ping6 tail traceroute6 $( ls /usr/share/grc/ ); do
+# cmd="${cmd##*conf.}"
+#  type "${cmd}" >/dev/null 2>&1 && alias "${cmd}"="$( which grc ) --colour=auto ${cmd}"
+#done
 
 
 
 
 # Save a lot of typing for common commands
-alias gs="git status"
-alias gc="git commit"
+#alias gs="git status"
+# alias gc="git commit"
 alias v="nvim"
 
 
+# -------------------------------------replacements--------------------------#
+alias aggregate="rs-aggregate"
+alias cat="bat"
+alias cloc="tokei"
+alias curl="curlie"
+#alias cp="xcp"
+alias df="duf"
+alias du="dust"
+alias diff="delta"
+alias find="fd"
+alias grep="rga --no-encoding"
+alias egrep="rga -F"
+alias hexadump="hexyl"
+alias ps="procs"
+alias sed="sd"
+alias timer="hyperfine"
+alias top="btm"
+alias uniq="huniq"
+#alias cp="xcp -i"
+# -------------------------------------commands--------------------------#
 
 
 
 # Overwrite existing commands for better defaults
-alias mv='mv -i'           # -i prompts before overwrite
-alias mkdir='mkdir -p'     # -p make parent dirs as needed
-alias df='df -h'           # -h prints human readable format
+alias cp="cp -i"
+
+alias mv="mv -i"
+
+alias rm="rm -i"
+
+alias mkdir="mkdir -p"
+
+
+# Overwrite existing commands for better defaults
+# alias mv='mv -i'           # -i prompts before overwrite
+# alias mkdir='mkdir -p'     # -p make parent dirs as needed
+# alias df='df -h'           # -h prints human readable format
 
 
 
 
 
-alias ls='eza --icons --classify --colour=auto --sort=type --group-directories-first --header --modified --created --git --binary --group'
-alias la='ls -a'
-alias l='ls --grid'
-alias ll='eza -lah --icons'
-alias lt='ls --tree'
+
+# -------------------------------------utitlies--------------------------#
+
+alias csvutil="qsv"
+alias ch="cht.sh"
+alias code="code-insiders"
+alias dox="sn0int"
+alias hp="http-prompt"
+alias int="interpreter"
+alias listalias="als"
+alias lte="ls --tree"
+alias lv="lnav"
+alias sl="ls"
+alias szrc="source ~/.zshrc"
+alias wt="wezterm"
+alias zplug="geany ~/.zsh_plugins.txt"
+alias zpro="geany ~/.zprofile"
+alias zrc="geany ~/.zshrc"
 
 
-# Make shorthands for common flags
-#alias ll="ls -lah"
+
+
+
 
 # Save you from mistyping
-alias sl=ls
 
 
-alias sudo="sudo "
-
-
-
-alias sherlock=/home/parrot/sherlock/sherlock/dist/sherlock/./sherlock
-
-
-alias xfreerdp='flatpak run com.freerdp.FreeRDP'
-alias cat="bat --paging=never --theme=Dracula"
-
-
-alias -g -- --help="--help 2>&1 | bat --theme="OneHalfDark" --language=help -pp"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#~ alias sudo="sudo "
 
 
 
+#~ alias g++='/usr/bin/grc --colour=auto g++'
+#~ alias head='/usr/bin/grc --colour=auto head'
+#~ alias make='/usr/bin/grc --colour=auto make'
+#~ alias ld='/usr/bin/grc --colour=auto ld'
+#~ alias ping6='/usr/bin/grc --colour=auto ping6'
+#~ alias tail='/usr/bin/grc --colour=auto tail'
+#~ alias traceroute6='/usr/bin/grc --colour=auto traceroute6'
+#~ alias blkid='/usr/bin/grc --colour=auto blkid'
+#~ alias df='/usr/bin/grc --colour=auto df'
+#~ alias diff='/usr/bin/grc --colour=auto diff'
+#~ alias dig='/usr/bin/grc --colour=auto dig'
+#~ alias du='/usr/bin/grc --colour=auto du'
+#~ alias env='/usr/bin/grc --colour=auto env'
+#~ alias fdisk='/usr/bin/grc --colour=auto fdisk'
+#~ alias findmnt='/usr/bin/grc --colour=auto findmnt'
+#~ alias free='/usr/bin/grc --colour=auto free'
+#~ alias gcc='/usr/bin/grc --colour=auto gcc'
+#~ alias getfacl='/usr/bin/grc --colour=auto getfacl'
+#~ alias getsebool='/usr/bin/grc --colour=auto getsebool'
+#~ alias id='/usr/bin/grc --colour=auto id'
+#~ alias ifconfig='/usr/bin/grc --colour=auto ifconfig'
+#~ alias ip='/usr/bin/grc --colour=auto ip'
+#~ alias iptables='/usr/bin/grc --colour=auto iptables'
+#~ alias iwconfig='/usr/bin/grc --colour=auto iwconfig'
+#~ alias jobs='/usr/bin/grc --colour=auto jobs'
+#~ alias last='/usr/bin/grc --colour=auto last'
+#~ alias lsattr='/usr/bin/grc --colour=auto lsattr'
+#~ alias log='/usr/bin/grc --colour=auto log'
+#~ alias lsblk='/usr/bin/grc --colour=auto lsblk'
+#~ alias lsmod='/usr/bin/grc --colour=auto lsmod'
+#~ alias lsof='/usr/bin/grc --colour=auto lsof'
+#~ alias lspci='/usr/bin/grc --colour=auto lspci'
+#~ alias mount='/usr/bin/grc --colour=auto mount'
+#~ alias mvn='/usr/bin/grc --colour=auto mvn'
+#~ alias netstat='/usr/bin/grc --colour=auto netstat'
+#~ alias nmap='/usr/bin/grc --colour=auto nmap'
+#~ alias php='/usr/bin/grc --colour=auto php'
+#~ alias ping='/usr/bin/grc --colour=auto ping'
+#~ alias ps='/usr/bin/grc --colour=auto ps'
+#~ alias ss='/usr/bin/grc --colour=auto ss'
+#~ alias stat='/usr/bin/grc --colour=auto stat'
+#~ alias sysctl='/usr/bin/grc --colour=auto sysctl'
+#~ alias systemctl='/usr/bin/grc --colour=auto systemctl'
+#~ alias tcpdump='/usr/bin/grc --colour=auto tcpdump'
+#~ alias traceroute='/usr/bin/grc --colour=auto traceroute'
+#~ alias tune2fs='/usr/bin/grc --colour=auto tune2fs'
+#~ alias tail='/usr/bin/grc --colour=auto tail'
+#~ alias ulimit='/usr/bin/grc --colour=auto ulimit'
+#~ alias uptime='/usr/bin/grc --colour=auto uptime'
+#~ alias vmstat='/usr/bin/grc --colour=auto vmstat'
+#~ alias whois='/usr/bin/grc --colour=auto whois'
+
+#alias sherlock=/home/parrot/sherlock/sherlock/dist/sherlock/./sherlock
+
+
+alias xfreerdp="flatpak run com.freerdp.FreeRDP"
+
+
+#macchina
+[ "$(date +%j)" != "$(cat ~/.mf.prevtime 2>/dev/null)" ] && { macchina > ~/.mf; date +%j > ~/.mf.prevtime; cat --style=plain ~/.mf; } || cat --style=plain ~/.mf
+
+
+
+# Load pyenv automatically by appending
+# the following to
+# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+# and ~/.bashrc (for interactive shells) :
+
+#export PYENV_ROOT="$HOME/.pyenv"
+#eval "$(pyenv init -)"
+
+
+
+
+
+
+
+
+
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
