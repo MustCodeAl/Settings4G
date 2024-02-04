@@ -1,72 +1,87 @@
-# Load the oh-my-zsh's library.
-#antigen use oh-my-zsh
 
 
-jeffreytse/zsh-vi-mode
-
-#MenkeTechnologies/zsh-more-completions
-
-Aloxaf/fzf-tab kind:defer
-
-
-#zsh-defer source /home/parrot/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/autopair.plugin.zsh
-#zsh-defer source /home/parrot/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/zsh-autopair.plugin.zsh
-  
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-#git
-#heroku
-#pip
-#lein
-#command-not-found
+romkatv/zsh-defer kind:clone 
+# defered plugins
 
 
 
-chrissicool/zsh-256color
-le0me55i/zsh-extract
+ohmyzsh/ohmyzsh path:lib
 
 
-
-
-
-
-
-zdharma-continuum/fast-syntax-highlighting
-ael-code/zsh-colored-man-pages
-
-bric3/nice-exit-code
-
-oldratlee/hacker-quotes
-zsh-users/zsh-autosuggestions
-
-atuinsh/atuin kind:defer
-
-jhwohlgemuth/zsh-pentest
-zpm-zsh/mysql-colorize
+# git hub repos
 mroth/evalcache
-
-
-voronkovich/mysql.plugin.zsh
+mafredri/zsh-async
+zpm-zsh/ls
+jeffreytse/zsh-vi-mode
+MichaelAquilina/zsh-you-should-use
+# CyberSecurityN00b/penzsh
+Freed-Wu/zsh-help
+zpm-zsh/undollar
+zpm-zsh/mysql-colorize
+# jhwohlgemuth/zsh-pentest
 caarlos0/zsh-pg
-
-jedahan/ripz
-skx/sysadmin-util
-
+voronkovich/mysql.plugin.zsh
+reegnz/jq-zsh-plugin
 
 
-CyberSecurityN00b/penzsh
+# oh my zsh plugins
+ohmyzsh/ohmyzsh path:plugins/aliases
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/debian
+ohmyzsh/ohmyzsh path:plugins/encode64
+ohmyzsh/ohmyzsh path:plugins/gradle kind:defer
+ohmyzsh/ohmyzsh path:plugins/mongocli
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/mise
+ohmyzsh/ohmyzsh path:plugins/nmap
+ohmyzsh/ohmyzsh path:plugins/pip
+ohmyzsh/ohmyzsh path:plugins/python
+ohmyzsh/ohmyzsh path:plugins/thefuck kind:defer
+ohmyzsh/ohmyzsh path:plugins/tmux kind:defer
+ohmyzsh/ohmyzsh path:plugins/zoxide
 
-clarketm/zsh-completions
+
+
+
+#theme
+romkatv/powerlevel10k kind:fpath
+
+
+
+
+
+
+
+
+zsh-users/zsh-autosuggestions kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
+Aloxaf/fzf-tab kind:defer
+Freed-Wu/fzf-tab-source kind:defer
+hlissner/zsh-autopair kind:defer
+unixorn/warhol.plugin.zsh kind:defer
+
+
+
 
 
 #tom-doerr/zsh_codex
 
 
-MichaelAquilina/zsh-you-should-use
-#qoomon/zsh-lazyload
+
+
+#$ZDOTDIR/completions kind:fpath
+
+
+# add even more completions
+# zsh-users/zsh-completions
+mattmc3/zephyr path:plugins/completion
+
+
+# now, configure and run compinit to initialize completions
+# belak/zsh-utils path:completion
 
 
 
-
-hlissner/zsh-autopair kind:defer
-# Tell Antigen that you're done.
-#antigen apply
