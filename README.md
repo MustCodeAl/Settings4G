@@ -11,6 +11,12 @@ Broken Terminal Settings
 mise settings set experimental true
 
 # install fast and standard build tools
+
+$ sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+
 $ mise use -g go:https://github.com/rs/curlie
 $ mise use -g cargo:cargo-binstall
 $ mise use -g cmake just make maven sccache
