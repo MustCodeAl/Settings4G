@@ -50,7 +50,7 @@ $ mise use -g bun conan pipx pnpm yarn -y
 $ mise use -g fzf git hurl jq nano shellcheck shfmt tmux vim -y
 
 # utilities
-$ mise use -g bat bat-extras chisel delta dust eza fd glow gitui lazygit sshuttle starship tokei watchexec zoxide -y
+$ mise use -g bat bat-extras chisel delta dust eza fd glow lazygit sshuttle starship tokei watchexec zoxide -y
 
 
 # other utilties
