@@ -2,13 +2,14 @@
 Broken Terminal Settings
  will fix some stuff later but for now the work around is `bash` then `zsh` then `source ~/.zshrc`
 
-
-
+# install tweaks from this repo
+$ https://gitlab.com/kalilinux/packages/kali-tweaks/-/tree/kali/master
 
 ```sh 
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # allow mise to use go and cargo installers
-mise settings set experimental true
+$ mise settings set experimental true
 
 # install fast and standard build tools
 
@@ -25,7 +26,7 @@ $ sudo apt update && apt install -y git curl bsdmainutils file unzip make autoco
 # wsl stuff
 $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
 
-$ mise use -g go:https://github.com/rs/curlie
+$ mise use -g go:github.com/rs/curlie@latest
 $ mise use -g cargo:cargo-binstall
 $ mise use -g cmake just make maven sccache
 
