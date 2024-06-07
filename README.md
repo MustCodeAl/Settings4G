@@ -13,6 +13,9 @@ $ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/
 # allow mise to use go and cargo installers
 $ mise settings set experimental true
 
+# setup os to use mise installs as defaults 
+$ sudo ln -s ~/.local/share/mise/shims/ /usr/local/bin
+
 # install fast and standard build tools
 
 $ sudo apt install build-essential libssl-dev zlib1g-dev \
