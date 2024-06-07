@@ -60,4 +60,7 @@ $ mise use -g cargo:bingrep cargo:dtool cargo:grex cargo:hexyl cargo:lemmeknow c
 
 $ mise use -g npm:localtunnel npm:prettier npm:tiktok-scraper
 
+$ cargo install cargo-watch --locked
+
+$ cargo binstall atuin bacon cargo-audit cargo-make cargo-outdated cargo-show-asm cargo-update cargo-wipe mdcat ripgrep ripgrep_all
 ```
