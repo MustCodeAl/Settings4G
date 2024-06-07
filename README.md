@@ -2,11 +2,13 @@
 Broken Terminal Settings
  will fix some stuff later but for now the work around is `bash` then `zsh` then `source ~/.zshrc`
 
-# install tweaks from this repo
-$ https://gitlab.com/kalilinux/packages/kali-tweaks/-/tree/kali/master
 
-```sh 
+```sh
+# install tweaks from this repo
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ curl https://mise.run | sh
+$ https://gitlab.com/kalilinux/packages/kali-tweaks/-/tree/kali/master
+$ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 
 # allow mise to use go and cargo installers
 $ mise settings set experimental true
@@ -27,8 +29,9 @@ $ sudo apt update && apt install -y git curl bsdmainutils file unzip make autoco
 $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
 
 $ mise use -g go:github.com/rs/curlie@latest
+$ muse use -g sccache
 $ mise use -g cargo:cargo-binstall
-$ mise use -g cmake just make maven sccache
+$ mise use -g cmake just make maven
 
 # languages to install
 $ mise use -g deno dotnet go java kotlin lua maven nim node python zig
