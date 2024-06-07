@@ -22,6 +22,8 @@ $ sudo apt-get install -y autopoint gettext groff texinfo automake autoconf
 $ sudo apt install cppman
 $ sudo apt install fuse xsel xclip
 $ sudo apt update && apt install -y git curl bsdmainutils file unzip make autoconf gcc zlib1g-dev openssl expat libc6 gettext
+$ sudo apt install libkf5syntaxhighlighting-dev
+$ sudo apt install bfs zsh
 
 
 
@@ -29,23 +31,23 @@ $ sudo apt update && apt install -y git curl bsdmainutils file unzip make autoco
 $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
 
 $ mise use -g go:github.com/rs/curlie@latest
-$ muse use -g sccache
+$ muse use -g sccache -y
 $ mise use -g cargo:cargo-binstall
-$ mise use -g cmake just make maven
+$ mise use -g cmake just make maven -y
 
 # languages to install
-$ mise use -g deno dotnet go java kotlin lua maven nim node python zig
+$ mise use -g deno dotnet go java kotlin lua maven nim node python zig -y
 
 # tools to install
 
 # package managers to install
-$ mise use -g bun conan pipx pnpm yarn
+$ mise use -g bun conan pipx pnpm yarn -y
 
 # standard system tools
-$ mise use -g fzf git hurl jq nano shellcheck shfmt tmux vim
+$ mise use -g fzf git hurl jq nano shellcheck shfmt tmux vim -y
 
 # utilities
-$ mise use -g bat bat-extras bfs chisel delta dust eza fd glow gitui lazygit sshuttle starship tokei watchexec zoxide
+$ mise use -g bat bat-extras chisel delta dust eza fd glow gitui lazygit sshuttle starship tokei watchexec zoxide -y
 
 
 # other utilties
