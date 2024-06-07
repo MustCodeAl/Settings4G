@@ -22,9 +22,12 @@ $ sudo apt-get install -y autopoint gettext groff texinfo automake autoconf
 $ sudo apt install cppman
 $ sudo apt install fuse xsel xclip
 $ sudo apt update && apt install -y git curl bsdmainutils file unzip make autoconf gcc zlib1g-dev openssl expat libc6 gettext
+$ sudo apt-get install ccache cmake make g++-multilib gdb lldb \
+  pkg-config coreutils python3-pexpect manpages-dev git \
+  ninja-build capnproto libcapnp-dev zlib1g-dev libzstd-dev
 $ sudo apt install libkf5syntaxhighlighting-dev
 $ sudo apt install bfs zsh
-
+$ sudo apt-get install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
 
 
 # wsl stuff
