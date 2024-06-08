@@ -21,7 +21,7 @@ $ sudo ln -s ~/.local/share/mise/shims/ /usr/local/bin
 
 $ sudo apt install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+libncurses-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 $ sudo apt-get install -y autopoint gettext groff texinfo automake autoconf 
 $ sudo apt install cppman
 $ sudo apt install fuse xsel xclip
