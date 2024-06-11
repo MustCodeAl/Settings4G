@@ -32,7 +32,7 @@ $ sudo apt-get install ccache cmake make g++-multilib gdb lldb \
 $ sudo apt install libkf5syntaxhighlighting-dev
 $ sudo apt install bfs zsh
 $ sudo apt-get install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
-
+$ sudo apt install libwebkit2gtk-4.0-dev wget file libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
 
 # wsl stuff
 $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
