@@ -3,7 +3,7 @@ Broken Terminal Settings
  will fix some stuff later but for now the work around is `bash` then `zsh` then `source ~/.zshrc`
 
 
-```sh
+```sh-session
 # install tweaks from this repo
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 $ curl https://mise.run | sh
