@@ -3,10 +3,9 @@ Broken Terminal Settings
  will fix some stuff later but for now the work around is `bash` then `zsh` then `source ~/.zshrc`
 
 follow these guides if you are using wsl:
-https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/docker.html
-https://docs.nvidia.com/cuda/wsl-user-guide/index.html
-https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
-https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#meta-packages
+* https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/docker.html
+* https://docs.nvidia.com/cuda/wsl-user-guide/index.html
+* https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
 
 ```console
 # install tweaks from this repo
