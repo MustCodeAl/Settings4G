@@ -6,7 +6,9 @@ follow these guides if you are using wsl:
 * https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/docker.html
 * https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 * https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
+* https://github.com/wslutilities/wslu
 
+  
 ```console
 # install tweaks from this repo
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
