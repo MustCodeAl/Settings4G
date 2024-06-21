@@ -121,7 +121,7 @@ zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 [[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
 
 # Lazy-load antidote.
-fpath+=(${ZDOTDIR:-~}/.antidote/functions $fpath)
+fpath=(${ZDOTDIR:-~}/.antidote/functions $fpath)
 autoload -Uz antidote
 
 export ZSH="$(antidote path ohmyzsh/ohmyzsh)"
