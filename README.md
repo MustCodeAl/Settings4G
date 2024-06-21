@@ -49,6 +49,7 @@ $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libx
 $ sudo snap install vim --classic
 $ sudo snap install nvim --classic
 $ sudo snap install nano --classic
+$ curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
 
 $ mise use -g go:github.com/rs/curlie@latest
