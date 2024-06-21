@@ -22,6 +22,9 @@ $ mise settings set experimental true
 # setup os to use mise installs as defaults 
 $ sudo mv /usr/local/bin /usr/local/BAKbin
 $ sudo ln -s ~/.local/share/mise/shims/ /usr/local/bin
+$ sudo apt-get install snapd
+$ sudo apt-get install protobuf-compiler
+
 
 # install fast and standard build tools
 
@@ -62,7 +65,7 @@ $ mise use -g deno dotnet go java kotlin lua maven nim node python zig -y
 $ mise use -g bun conan pipx pnpm yarn -y
 
 # standard system tools
-$ mise use -g fzf git hurl jq nano shellcheck shfmt tmux vim -y
+$ mise use -g fzf git hurl jq shellcheck shfmt tmux -y
 
 # utilities
 $ mise use -g bat bat-extras chisel delta dust eza fd glow lazygit sshuttle starship tokei watchexec zoxide -y
