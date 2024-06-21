@@ -127,7 +127,7 @@ autoload -Uz antidote
 export ZSH="$(antidote path ohmyzsh/ohmyzsh)"
 
 
-export ZSH_CACHE_DIR=~"$HOME/.cache/oh-my-zsh"
+export ZSH_CACHE_DIR="$HOME/.cache/oh-my-zsh"
 
 # Generate a new static file whenever .zsh_plugins.txt is updated.
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
