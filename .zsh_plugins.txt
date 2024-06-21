@@ -9,12 +9,11 @@ ohmyzsh/ohmyzsh path:lib
 
 
 # git hub repos
-mroth/evalcache
 mafredri/zsh-async
-zpm-zsh/ls
+MustCodeAl/ls
 jeffreytse/zsh-vi-mode
 MichaelAquilina/zsh-you-should-use
-# CyberSecurityN00b/penzsh
+# MustCodeAl/penzsh
 Freed-Wu/zsh-help
 zpm-zsh/undollar
 zpm-zsh/mysql-colorize
@@ -30,10 +29,10 @@ ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/command-not-found
 ohmyzsh/ohmyzsh path:plugins/debian
 ohmyzsh/ohmyzsh path:plugins/encode64
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gradle kind:defer
 ohmyzsh/ohmyzsh path:plugins/mongocli
-ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/mise
 ohmyzsh/ohmyzsh path:plugins/nmap
@@ -72,12 +71,10 @@ unixorn/warhol.plugin.zsh kind:defer
 
 
 
-#$ZDOTDIR/completions kind:fpath
 
 
 # add even more completions
 # zsh-users/zsh-completions
-mattmc3/zephyr path:plugins/completion
 
 
 # now, configure and run compinit to initialize completions
