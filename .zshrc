@@ -126,7 +126,9 @@ autoload -Uz antidote
 
 export ZSH="$(antidote path ohmyzsh/ohmyzsh)"
 
+export PATH="/snap/bin:$HOME/.local/bin:$PATH"
 
+# make a completions folder at this location too
 export ZSH_CACHE_DIR="$HOME/.cache/oh-my-zsh"
 
 # Generate a new static file whenever .zsh_plugins.txt is updated.
@@ -236,7 +238,6 @@ alias zrc="nano ~/.zshrc"
 #
 #
 
-printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x8c'
 
 last_repository=""
 
@@ -275,13 +276,12 @@ update_mf() {
   # Output the contents of the file
   cat "$mf_file"
 }
-update_mf ~/.mf ~/.mf.prevweek "%U"
+update_mf "$HOME"/.mf "$HOME"/.mf.prevweek "%U"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 
 
-# eval "$(/home/bolt/.local/bin/mise activate zsh)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
