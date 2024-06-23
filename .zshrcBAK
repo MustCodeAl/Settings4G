@@ -114,9 +114,11 @@ export CARGO_INCREMENTAL=0
 export SCCACHE_ERROR_LOG=/tmp/sccache_log.txt 
 #export SCCACHE_LOG=debug
 
-export RUSTC_WRAPPER=~/.cargo/bin/sccache
+export RUSTC_WRAPPER=sccache
 export CMAKE_C_COMPILER_LAUNCHER=sccache
 export CMAKE_CXX_COMPILER_LAUNCHER=sccache
+export LDFLAGS="-fuse-ld=mold" # add to your .profile
+
 
 
 export PYTHONDEBUG=1
