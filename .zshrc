@@ -72,6 +72,8 @@ export CMAKE_CXX_COMPILER_LAUNCHER=sccache
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
+export LDFLAGS="-fuse-ld=mold" # add to your .profile
+
 # force C colored diagnostic output
 export CFLAGS="${CFLAGS} -fdiagnostics-color=always"
 # force C++ colored diagnostic output
