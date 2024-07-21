@@ -31,18 +31,17 @@ $ sudo apt-get install protobuf-compiler
 $ sudo apt install build-essential mold libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncurses-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-$ sudo apt-get install -y autopoint gettext groff texinfo automake autoconf apt-transport-https
+$ sudo apt-get install -y autopoint gettext groff texinfo automake autoconf apt-transport-https ca-certificates software-properties-common
 $ sudo apt install cppman
 $ sudo apt install fuse xsel xclip
-$ sudo apt update && sudo apt install -y git curl bsdmainutils file unzip make autoconf gcc zlib1g-dev openssl expat libc6 gettext
+$ sudo apt update && sudo apt install -y bsdmainutils file wget unzip make gcc zlib1g-dev openssl expat libc6
 $ sudo apt-get install ccache cmake make g++-multilib gdb lldb \
   pkg-config coreutils python3-pexpect manpages-dev git \
   mold ninja-build capnproto libcapnp-dev zlib1g-dev libzstd-dev
 $ sudo apt install libkf5syntaxhighlighting-dev
-$ sudo apt install bfs zsh
+$ sudo apt install bfs
 $ sudo apt-get install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
-$ sudo apt install libwebkit2gtk-4.0-dev wget file libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
-$ sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+$ sudo apt install libwebkit2gtk-4.0-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
 
 # wsl stuff
 $ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
