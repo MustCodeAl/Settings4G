@@ -27,20 +27,20 @@ $ sudo apt-get install protobuf-compiler
 
 
 # install fast and standard build tools
-
-$ sudo apt install build-essential cmake coreutils curl cppman git make mold ninja-build
-$ sudo apt-get install -y autopoint automake autoconf apt-transport-https ca-certificates gettext groff software-properties-common texinfo
-$ sudo apt update && sudo apt install -y bsdmainutils file wget unzip make gcc zlib1g-dev openssl expat libc6
-$ sudo apt-get install ccache g++-multilib gdb lldb pkg-config python3-pexpect manpages-dev capnproto libcapnp-dev zlib1g-dev libzstd-dev
-$ sudo apt install libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-$ sudo apt install libkf5syntaxhighlighting-dev
-$ sudo apt install fuse xsel xclip
-$ sudo apt install bfs
+$ sudo apt update 
+$ sudo apt-get install -y apt-transport-https ca-certificates  software-properties-common
+$ sudo apt install build-essential cmake coreutils curl cppman git gcc make mold ninja-build
+$ sudo apt-get install -y autopoint automake autoconf capnproto gettext groff texinfo
+$ sudo apt install -y bfs bsdmainutils expat file wget unzip openssl libc6
+$ sudo apt-get install ccache g++-multilib gdb lldb pkg-config python3-pexpect manpages-dev tk-dev xz-utils
+$ sudo apt install libssl-dev libbz2-dev libreadline-dev libncurses-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+$ sudo apt install libkf5syntaxhighlighting-dev libsqlite3-dev libcapnp-dev zlib1g-dev libzstd-dev
 $ sudo apt-get install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
 $ sudo apt install libwebkit2gtk-4.0-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
 
 # wsl stuff
-$ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0
+$ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0 fuse xsel xclip
+
 $ sudo snap install vim --classic
 $ sudo snap install nvim --classic # or install through nightly releases
 $ sudo snap install nano --classic
