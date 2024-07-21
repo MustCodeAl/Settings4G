@@ -53,6 +53,7 @@ $ curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
 
 $ mise use -g go:github.com/rs/curlie@latest
+$ mise use -g usage -y
 $ mise use -g sccache -y
 $ mise use -g cargo:cargo-binstall
 $ mise use -g cmake just make maven -y
