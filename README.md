@@ -39,7 +39,7 @@ $ sudo apt-get install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev 
 $ sudo apt install libwebkit2gtk-4.0-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
 
 # wsl stuff
-$ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0 fuse xsel xclip
+$ sudo apt update && sudo apt install -y fontconfig libegl1 libwayland-egl1 libxcursor1 libxkbcommon-x11-0 fuse xsel xclip alsa-utils wl-clipboard
 
 $ sudo snap install vim --classic
 $ sudo snap install nvim --classic # or install through nightly releases
