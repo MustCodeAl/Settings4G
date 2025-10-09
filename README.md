@@ -18,7 +18,12 @@ for console customization:  https://github.com/MustCodeAl/awesome-colored-output
 ```console
 # install tweaks from this repo
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+(one of these)
 $ curl https://mise.run | sh
+$ curl https://mise.run | MISE_INSTALL_PATH=/usr/local/bin/mise sh
+$ curl https://mise.run | sudo sh -c 'MISE_INSTALL_PATH=/usr/local/bin/mise sh'
+
 $ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 
 # allow mise to use go and cargo installers
