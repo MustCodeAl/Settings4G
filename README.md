@@ -33,15 +33,15 @@ $ sudo apt install protobuf-compiler
 
 
 # install fast and standard build tools
-$ sudo apt update
-$ sudo apt install ubuntu-standard util-linux
-$ sudo apt install -y apt-transport-https ca-certificates  software-properties-common
+$ sudo apt-fast update
+$ sudo apt-fast install ubuntu-standard util-linux
+$ sudo apt-fast install -y apt-transport-https ca-certificates  software-properties-common
 $ sudo apt install build-essential devscripts coreutils bsdextrautils
-$ sudo apt install ninja-build mold gdb lldb pkg-config ccache g++-multilib cppman
-$ sudo apt install libssl-dev libbz2-dev libncurses-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev python3-pexpect 
-$ sudo apt install libkf5syntaxhighlighting-dev libsqlite3-dev libcapnp-dev libzstd-dev 
-$ sudo apt install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
-$ sudo apt install libwebkit2gtk-4.0-dev libgtk-3-dev tk-dev libayatana-appindicator3-dev librsvg2-dev
+$ sudo apt-fast install ninja-build mold gdb lldb pkg-config ccache g++-multilib cppman
+$ sudo apt-fast install libssl-dev libbz2-dev libncurses-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev python3-pexpect 
+$ sudo apt-fast install libkf5syntaxhighlighting-dev libsqlite3-dev libcapnp-dev libzstd-dev 
+$ sudo apt-fast install libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev icu-devtools libicu-dev
+$ sudo apt-fast install libwebkit2gtk-4.0-dev libgtk-3-dev tk-dev libayatana-appindicator3-dev librsvg2-dev
 
 
 
