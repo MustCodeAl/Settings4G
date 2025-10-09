@@ -2,9 +2,11 @@
 Broken Terminal Settings
  will fix some stuff later but for now the work around is `bash` then `zsh` then `source ~/.zshrc`
 
-`sudo add-apt-repository ppa:apt-fast/stable`
-`sudo apt-get update`
-`sudo apt-get -y install apt-fast`
+```consle
+sudo add-apt-repository ppa:apt-fast/stable
+sudo apt-get update
+sudo apt-get -y install apt-fast
+```
 
 
 
