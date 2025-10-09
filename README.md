@@ -36,7 +36,7 @@ $ sudo apt install protobuf-compiler
 $ sudo apt-fast update
 $ sudo apt-fast install ubuntu-standard util-linux
 $ sudo apt-fast install -y apt-transport-https ca-certificates  software-properties-common
-$ sudo apt install build-essential devscripts coreutils bsdextrautils
+$ sudo apt-fast install build-essential devscripts coreutils bsdextrautils
 $ sudo apt-fast install ninja-build mold gdb lldb pkg-config ccache g++-multilib cppman
 $ sudo apt-fast install libssl-dev libbz2-dev libncurses-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev python3-pexpect 
 $ sudo apt-fast install libkf5syntaxhighlighting-dev libsqlite3-dev libcapnp-dev libzstd-dev 
