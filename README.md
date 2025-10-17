@@ -80,11 +80,11 @@ $ mise use -g bun pipx -y
 $ mise use -g fzf git hurl jq shellcheck shfmt tmux -y
 
 # utilities
-$ mise use -g bat bat-extras chisel delta dust eza fd glow lazygit sshuttle starship tokei watchexec zoxide -y
+$ mise use -g bat bat-extras bottom chisel delta dust eza fd glow lazygit sshuttle starship tokei watchexec zoxide -y
 
 
 # other utilties
-$ mise use -g cargo:bottom cargo:fclones cargo:macchina cargo:onefetch cargo:procs cargo:tealdeer cargo:trippy
+$ mise use -g cargo:fclones cargo:macchina cargo:onefetch cargo:procs cargo:tealdeer cargo:trippy
 
 $ mise use -g cargo:bingrep cargo:dtool cargo:grex cargo:hexyl cargo:lemmeknow cargo:qsv cargo:zipsign
 
