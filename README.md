@@ -59,6 +59,7 @@ $ curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 $ sudo apt install bfs
 
 $ mise use -g go:github.com/rs/curlie@latest
+$ mise use -g curlie
 $ mise use -g usage -y
 $ mise use -g sccache -y
 $ mise use -g cargo:cargo-binstall
