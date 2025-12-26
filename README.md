@@ -24,6 +24,18 @@ $ curl https://mise.run | sh
 $ curl https://mise.run | MISE_INSTALL_PATH=/usr/local/bin/mise sh
 $ curl https://mise.run | sudo sh -c 'MISE_INSTALL_PATH=/usr/local/bin/mise sh'
 
+
+or
+
+
+$ sudo apt update -y && sudo apt install -y curl
+$ sudo install -dm 755 /etc/apt/keyrings
+$ curl -fSs https://mise.jdx.dev/gpg-key.pub | sudo tee /etc/apt/keyrings/mise-archive-keyring.pub 1> /dev/null
+$ echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub arch=amd64] https://mise.jdx.dev/deb stable main" | sudo tee /etc/apt/sources.list.d/mise.list
+$ sudo apt update
+$ sudo apt install -y mise
+
+
 $ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 
 # allow mise to use go and cargo installers
@@ -58,11 +70,10 @@ $ curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
 $ sudo apt install bfs
 
-$ mise use -g go:github.com/rs/curlie@latest
 $ mise use -g curlie
 $ mise use -g usage -y
 $ mise use -g sccache -y
-$ mise use -g cargo:cargo-binstall
+$ mise use -g cargo-binstall
 $ mise use -g cmake just make maven -y
 
 # languages to install
@@ -86,6 +97,7 @@ $ mise use -g bat bat-extras bottom chisel delta dust eza fd glow lazygit sshutt
 # other utilties
 $ mise use -g cargo:fclones cargo:macchina cargo:onefetch cargo:procs cargo:tealdeer cargo:trippy
 
+# stuff thats gonna get compiled
 $ mise use -g cargo:bingrep cargo:dtool cargo:grex cargo:hexyl cargo:lemmeknow cargo:qsv cargo:zipsign
 
 $ mise use -g npm:localtunnel npm:prettier npm:tiktok-scraper
